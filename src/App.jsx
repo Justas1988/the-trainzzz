@@ -9,7 +9,13 @@ class App extends React.Component {
 
     constructor() {
         super();
-        this.state = {bg: 'palegreen'};
+        this.state = {bg: 'palegreen',
+                      in: 'spalva', 
+                      br: 'naujas skersmuo', 
+                      plotis: 300,
+                      aukstis: 300,
+                      radius: 1000,
+                        };
     }
 
     changeColor = (spalva) => e => {
@@ -31,12 +37,48 @@ class App extends React.Component {
 
     }
 
+    inChange = (e) => {
+        this.setState({
+            in: e.target.value,
+            bg: e.target.value,
+        });
+    }
+
+    sizeChange = (e) => {
+        this.setState({            
+            plotis: parseInt(e.target.value),
+            aukstis: parseInt(e.target.value),
+        });
+    }
+
+    toSquare = (e) => {
+        this.setState(state => {
+            let newRadius;
+               if (state.radius == 1000) {
+                newRadius = 0;
+
+            }  else if (state.radius == 0) {
+                newRadius = 1000;
+            }           
+        
+            return(                
+                {radius: newRadius}                
+            )   
+            
+        });
+    }
+
     render() {
         return (
-            <div className="circle" style={{backgroundColor: this.state.bg}}>
+            <div className="circle" style={{backgroundColor: this.state.bg, width: this.state.plotis, height: this.state.aukstis, borderRadius: this.state.radius}}>
                 <ChangeColorButton buttonColor={'red'} clickToChangeColor={this.changeColor('red')}></ChangeColorButton>
                 <ChangeColorButton buttonColor={'green'} clickToChangeColor={this.changeColor('green')}></ChangeColorButton>
                 <ChangeColorButton buttonColor={'orange'} clickToChangeColor={this.changeColor('orange')}></ChangeColorButton>
+                <input type="text" value={this.state.in} onChange={this.inChange}/>                
+                <input type="number" value={this.state.plotis} onChange={this.sizeChange}/>
+                <input type="checkbox" onChange={this.toSquare} />
+
+
             </div>
         );
     }
