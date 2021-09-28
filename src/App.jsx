@@ -1,125 +1,30 @@
- // import trains from "./data";
-import "./trains.css"
-  
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+import Todo from './Todo';
 
-import ChangeColorButton from './ChangeColorButton';
+function App() {
 
-class App extends React.Component {
+    const [todos, setTodos] = useState([]);
 
-    constructor() {
-        super();
-        this.state = {bg: 'palegreen',
-                      in: 'spalva', 
-                      br: 'naujas skersmuo', 
-                      plotis: 300,
-                      aukstis: 300,
-                      radius: 1000,
-                        };
+    useEffect(()=>{
+        console.log('Start');
+        axios.get('https://in3.dev/knygos/')
+        .then(function (response) {
+            console.log(response.data);
+            setTodos(response.data);
+        })
+    }, []);
+
+    
+    return (<div className="todo-container">
+        {todos.map((todo)=>(<Todo key={todo.id} 
+                                    id={todo.id} 
+                                    author={todo.author}
+                                    img={todo.img}
+                                    title={todo.title}
+                                    price={todo.price}>
+                                    </Todo>))}
+            </div>);
     }
-
-    changeColor = (spalva) => e => {
-     
-        this.setState(state => {
-
-            let color;
-            // if (state.bg == 'palegreen') {
-            //     color = spalva;
-            // }
-            // else if (state.bg == 'orangered') {
-                color = spalva;
-           // }
-
-            return(
-                {bg: color}
-                )
-            });
-
-    }
-
-    inChange = (e) => {
-        this.setState({
-            in: e.target.value,
-            bg: e.target.value,
-        });
-    }
-
-    sizeChange = (e) => {
-        this.setState({            
-            plotis: parseInt(e.target.value),
-            aukstis: parseInt(e.target.value),
-        });
-    }
-
-    toSquare = (e) => {
-        this.setState(state => {
-            let newRadius;
-               if (state.radius == 1000) {
-                newRadius = 0;
-
-            }  else if (state.radius == 0) {
-                newRadius = 1000;
-            }           
-        
-            return(                
-                {radius: newRadius}                
-            )   
-            
-        });
-    }
-
-    render() {
-        return (
-            <div className="circle" style={{backgroundColor: this.state.bg, width: this.state.plotis, height: this.state.aukstis, borderRadius: this.state.radius}}>
-                <ChangeColorButton buttonColor={'red'} clickToChangeColor={this.changeColor('red')}></ChangeColorButton>
-                <ChangeColorButton buttonColor={'green'} clickToChangeColor={this.changeColor('green')}></ChangeColorButton>
-                <ChangeColorButton buttonColor={'orange'} clickToChangeColor={this.changeColor('orange')}></ChangeColorButton>
-                <input type="text" value={this.state.in} onChange={this.inChange}/>                
-                <input type="number" value={this.state.plotis} onChange={this.sizeChange}/>
-                <input type="checkbox" onChange={this.toSquare} />
-
-
-            </div>
-        );
-    }
-}
     
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const TrainGenerator = trains.map((train, index) =>    
-//         <div key={index}><img  src={train.img} alt={"traukinys"} className="TrainyMcTrain" />        
-//         <div className="TrainyMcName">{train.desc}</div> </div>
-//         );
-        
-
-
-// const App = () => {
-//     console.log(typeof trains);
- 
-//     return TrainGenerator;
-    
-// }
-
-
-// export default App;

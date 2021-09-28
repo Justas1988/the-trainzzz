@@ -1,3 +1,16 @@
+.smallCircle {
+    background: green;
+    border-radius: 50%; 
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-left: 35vw;
+    margin-top: 10vw;
+}
+
 .circle {
     background: green;
     /* border-radius: 50%; 
