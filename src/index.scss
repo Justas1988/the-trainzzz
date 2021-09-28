@@ -3,7 +3,7 @@
     --color: #000000;
     --feedback-bg-color: #ffffff;
     --feedback-secondary-color: #ffacac;
-    --feedback-primary-color: #62448a;
+    --feedback-primary-color: #53488d;
     --feedback-icon-color: #ffffff;
     --feedback-form-input: #f4f4f4;
 }
@@ -127,31 +127,31 @@ code {
     }
 }
 
-// button {
-//     border: none;
-//     background-color: peachpuff;
-//     padding: 27px;
-//     font-size: 27px;
-//     letter-spacing: 2px;
-//     color: peru;
-//     border-radius: 10px;
-//     cursor: pointer;
-//     position: relative;
-//     margin: 5px;
-//     &.input-button-small {
-//         font-size: 14px;
-//         letter-spacing: 1px;
-//         color: white;
-//         background-color: rgb(205, 63, 110);
-//         padding: 8px;
-//     }
-//     .reg {
-//         position: absolute;
-//         bottom: 5px;
-//         right: 5px;
-//         font-size: 10px;
-//     }
-// }
+button {
+    border: none;
+    background-color: peachpuff;
+    padding: 27px;
+    font-size: 27px;
+    letter-spacing: 2px;
+    color: peru;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    margin: 5px;
+    &.input-button-small {
+        font-size: 14px;
+        letter-spacing: 1px;
+        color: white;
+        background-color: rgb(205, 63, 110);
+        padding: 8px;
+    }
+    .reg {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        font-size: 10px;
+    }
+}
 
 .small-circle {
     width: 250px;
@@ -206,14 +206,6 @@ code {
         padding: 5px;
         border: 1px solid skyblue;
         border-radius: 4px;
-        font-family: Arial, Helvetica, sans-serif;
-        .bottom {
-            display: flex;
-            flex-direction: row;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 100px;
-        }
         .id {
             margin: 5px 0 16px 0;
             padding: 4px;
@@ -226,49 +218,88 @@ code {
             border-radius: 50%;
             color: black;
         }
-        .author {
-            padding: 5px 5px 5px 5px;
-            letter-spacing: 0.5;
-            font-size: 25px;
-            color: skyblue;
-            width: 220px;
-        }
         .title {
-            padding: 5px 5px 10px 5px;
+            padding: 5px 5px 5px 0;
             letter-spacing: 0.5;
-            font-size: 15px;
+            font-size: 12px;
             color: skyblue;
-            width: 200px;
-        }
-        .price {
-            padding: 5px 5px 5px 5px;
-            letter-spacing: 0.5;
-            font-size: 20px;
-            color: rgb(255, 255, 255);            
-            font-weight: bold;
-            border: 2px solid rgb(255, 255, 255);
-            border-radius: 10px;
-                .price-text {
-                    margin: 0;
-                }
         }
         .status {
             width: 20px;
             height: 20px;
             margin: 12px;
+            cursor: pointer;
         }
-        .cover {
-            margin: 5px 5px 5px 5px;
+        .user {
+            font-style: italic;
+            font-size: 14px;
+            color: chartreuse;
         }
-        .pirkti {
-            float: right;
-            width: 80px;
-            height: 35px;
-            border: 0;
-            border-radius: 5px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
+    }
+}
+
+.books-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 15%;
+    .book {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 10px;
+        padding: 5px;
+        background-color: sandybrown;
+        border-radius: 4px;
+        width: 250px;
+        height: 370px;
+        img {
+            height: 200px;
+            width: auto;
+        }
+        .author {
+            font-style: italic;
+            font-size: 12px;
+            color: gray;
+        }
+        .title {
+            font-size: 16px;
+            color: black;
+        }
+        .price {
+            font-size: 19px;
+            color: red;
             font-weight: bold;
         }
+        .cat {
+            margin: 5px;
+            padding: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 20px;
+            border-radius: 20px;
+            color: black;
+        }
+    }
+}
+
+.sorter {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px;
+    padding: 5px;
+    background-color: sandybrown;
+}
+
+a {
+    text-decoration: none;
+    color: darkcyan;
+    transition: all .3s;
+    &:hover {
+        color: darkgreen;
     }
 }
