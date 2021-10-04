@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useReducer} from 'react';
-import SmallAnimal from './SmallAnimalF';
+import SmallAnimal from './smallAnimalF'
 import Modal from './Modal';
 import farmReducer from '../Reducers/farmReducer';
 import { changeAnimal, createAnimal, getAllAnimals, moveAnimal, removeAnimal } from '../Actions'; 
